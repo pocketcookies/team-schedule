@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Availability } from './availability';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  name = '';
+  availabilities = [
+    new Availability()
+  ];
+
+  addAvailability() {
+    this.availabilities.push(new Availability());
+  }
+
+  removeAvailability(availability: Availability) {
+    this.availabilities.splice(this.availabilities.indexOf(availability), 1);
+  }
 }
